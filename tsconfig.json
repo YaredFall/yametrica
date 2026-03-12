@@ -5,7 +5,7 @@
         "rootDir": "${configDir}/src",
         "target": "esnext",
         "module": "ESNext",
-        "moduleResolution": "Node",
+        "moduleResolution": "bundler",
         "lib": ["es2020", "dom", "dom.iterable"],
         "typeRoots": ["${configDir}/node_modules/@types/", "${configDir}/node_modules/vite"],
 
