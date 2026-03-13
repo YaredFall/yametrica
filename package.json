@@ -1,12 +1,12 @@
 {
-  "private": true,
-  "name": "yandex-metrica",
-  "type": "module",
-  "version": "0.0.0",
-  "license": "MIT",
-  "packageManager": "pnpm@10.12.1",
-  "devDependencies": {
-    "@biomejs/biome": "^2.4.6",
-    "typescript": "^5.9.3"
-  }
+    "private": true,
+    "name": "yandex-metrica",
+    "type": "module",
+    "version": "0.0.0",
+    "license": "MIT",
+    "packageManager": "pnpm@10.12.1",
+    "devDependencies": {
+        "@biomejs/biome": "^2.4.6",
+        "typescript": "^5.9.3"
+    }
 }
