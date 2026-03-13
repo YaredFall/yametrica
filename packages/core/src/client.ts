@@ -83,7 +83,9 @@ export function createYandexMetricaClient(options: YandexMetricaClientParams = {
     }
 
     return {
-        clientID,
+        get clientID() {
+            return clientID;
+        },
         init,
         addFileExtension,
         extLink,
