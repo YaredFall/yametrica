@@ -1,6 +1,6 @@
 "use client";
 
-import { useYandexECommerce } from "@yandex-metrica/nextjs";
+import { useYandexECommerce } from "@yametrica/nextjs";
 
 export function AddToCartButton() {
     const eCommerce = useYandexECommerce();

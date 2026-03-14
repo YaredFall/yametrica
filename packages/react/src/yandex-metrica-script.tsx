@@ -1,4 +1,4 @@
-import { createYandexMetricaScript } from "@yandex-metrica/react";
+import { createYandexMetricaScript } from "@yametrica/react";
 import type { ComponentProps } from "react";
 
 interface YandexMetricaScriptProps extends Omit<ComponentProps<"script">, "children" | "src"> {

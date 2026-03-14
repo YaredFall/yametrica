@@ -25,7 +25,7 @@ importers:
 
   packages/nextjs:
     dependencies:
-      '@yandex-metrica/react':
+      '@yametrica/react':
         specifier: workspace:*
         version: link:../react
     devDependencies:
@@ -41,7 +41,7 @@ importers:
 
   packages/react:
     dependencies:
-      '@yandex-metrica/core':
+      '@yametrica/core':
         specifier: workspace:*
         version: link:../core
     devDependencies:
@@ -54,7 +54,7 @@ importers:
 
   playgrounds/nextjs:
     dependencies:
-      '@yandex-metrica/nextjs':
+      '@yametrica/nextjs':
         specifier: workspace:*
         version: link:../../packages/nextjs
       next:

@@ -1,6 +1,6 @@
 "use client";
 
-import { useYandexMetrica } from "@yandex-metrica/nextjs";
+import { useYandexMetrica } from "@yametrica/nextjs";
 import { useState } from "react";
 
 export const Counter = () => {

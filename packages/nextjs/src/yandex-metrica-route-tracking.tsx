@@ -1,6 +1,6 @@
 "use client";
 
-import { useYandexMetrica } from "@yandex-metrica/react";
+import { useYandexMetrica } from "@yametrica/react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 

@@ -1,4 +1,4 @@
-import { createYandexMetricaScript } from "@yandex-metrica/react";
+import { createYandexMetricaScript } from "@yametrica/react";
 import Script from "next/script";
 import type { ComponentProps } from "react";
 

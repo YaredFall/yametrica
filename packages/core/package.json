@@ -6,7 +6,7 @@
             "import": "./dist/index.js"
         }
     },
-    "name": "@yandex-metrica/core",
+    "name": "@yametrica/core",
     "version": "0.0.0",
     "type": "module",
     "scripts": {

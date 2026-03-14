@@ -1,6 +1,6 @@
 "use client";
 
-import type { YandexECommerce, YandexMetricaClient } from "@yandex-metrica/core";
+import type { YandexECommerce, YandexMetricaClient } from "@yametrica/core";
 import { createContext } from "react";
 
 export interface YandexMetricaContextValue {

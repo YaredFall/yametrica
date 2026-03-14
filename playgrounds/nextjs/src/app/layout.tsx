@@ -7,7 +7,7 @@ import {
     YandexMetricaProvider,
     YandexMetricaRouteTracking,
     YandexMetricaScript,
-} from "@yandex-metrica/nextjs";
+} from "@yametrica/nextjs";
 import { Suspense } from "react";
 import { Header } from "./header";
 

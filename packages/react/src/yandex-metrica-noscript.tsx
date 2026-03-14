@@ -1,6 +1,6 @@
 "use client";
 
-import { createYandexMetricaNoscript } from "@yandex-metrica/core";
+import { createYandexMetricaNoscript } from "@yametrica/core";
 import { useContext } from "react";
 import { YandexMetricaContext } from "./context";
 

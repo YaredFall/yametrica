@@ -1,12 +1,12 @@
 {
     "private": true,
-    "name": "yandex-metrica",
+    "name": "yametrica",
     "type": "module",
     "version": "0.0.0",
     "license": "MIT",
     "scripts": {
-        "build": "pnpm run --filter @yandex-metrica/* build",
-        "release": "pnpm bumpp -r --no-push && pnpm --filter @yandex-metrica/* publish"
+        "build": "pnpm run --filter @yametrica/* build",
+        "release": "pnpm bumpp -r --no-push && pnpm --filter @yametrica/* publish"
     },
     "packageManager": "pnpm@10.12.1",
     "devDependencies": {

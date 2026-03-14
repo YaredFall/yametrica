@@ -5,7 +5,7 @@ import {
     createYandexMetricaClient,
     type YandexECommerceParams,
     type YandexMetricaClientParams,
-} from "@yandex-metrica/core";
+} from "@yametrica/core";
 import { type PropsWithChildren, useMemo } from "react";
 import { YandexMetricaContext } from "./context";
 

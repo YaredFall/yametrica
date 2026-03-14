@@ -1,6 +1,6 @@
 "use client";
 
-import type { InitParameters } from "@yandex-metrica/core";
+import type { InitParameters } from "@yametrica/core";
 import { useEffect } from "react";
 import { useYandexMetrica } from "./useYandexMetrica";
 
