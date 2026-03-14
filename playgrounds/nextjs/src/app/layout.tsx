@@ -8,6 +8,7 @@ import {
     YandexMetricaProvider,
 } from "@yandex-metrica/react";
 import Script from "next/script";
+import { Suspense } from "react";
 import { Header } from "./header";
 import { MetricaRouteTracking } from "./route-tracking";
 
@@ -34,14 +35,18 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={`${geistSans.variable} ${geistMono.variable} antialiased font-sans bg-zinc-50`}>
+                <Script id="yandex-metrica">{createYandexMetricaScript()}</Script>
+                <YandexMetricaNoscript clientID={process.env.NEXT_PUBLIC_YANDEX_METRICA_ID!} />
+
                 <YandexMetricaProvider enabled debug>
-                    <Script id="yandex-metrica">{createYandexMetricaScript()}</Script>
                     <YandexMetricaInit
                         clientID={process.env.NEXT_PUBLIC_YANDEX_METRICA_ID!}
                         initParameters={{ defer: true, clickmap: true, ecommerce: true }}
                     />
-                    <YandexMetricaNoscript />
-                    <MetricaRouteTracking />
+                    <Suspense>
+                        <MetricaRouteTracking />
+                    </Suspense>
+
                     <Header />
                     {children}
                 </YandexMetricaProvider>
