@@ -4,18 +4,12 @@ import type { InitParameters } from "@yandex-metrica/core";
 import { useEffect } from "react";
 import { useYandexMetrica } from "./useYandexMetrica";
 
-export function YandexMetricaInit({
-    clientID,
-    initParameters,
-}: {
-    clientID: string;
-    initParameters?: Partial<InitParameters>;
-}) {
+export function YandexMetricaInit(props: Partial<InitParameters>) {
     const client = useYandexMetrica();
 
     useEffect(() => {
-        client.init(clientID, initParameters);
-    }, [client, clientID, initParameters]);
+        client.init(props);
+    }, [client, props]);
 
     return null;
 }

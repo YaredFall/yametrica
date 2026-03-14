@@ -35,13 +35,11 @@ export default function RootLayout({
         <html lang="en">
             <body className={`${geistSans.variable} ${geistMono.variable} antialiased font-sans bg-zinc-50`}>
                 <YandexMetricaScript />
-                <YandexMetricaNoscript clientID={process.env.NEXT_PUBLIC_YANDEX_METRICA_ID!} />
+                <YandexMetricaProvider enabled debug clientID={process.env.NEXT_PUBLIC_YANDEX_METRICA_ID!}>
+                    <YandexMetricaNoscript />
 
-                <YandexMetricaProvider enabled debug>
-                    <YandexMetricaInit
-                        clientID={process.env.NEXT_PUBLIC_YANDEX_METRICA_ID!}
-                        initParameters={{ defer: true, clickmap: true, ecommerce: true }}
-                    />
+                    <YandexMetricaInit defer clickmap ecommerce />
+
                     <Suspense>
                         <YandexMetricaRouteTracking />
                     </Suspense>

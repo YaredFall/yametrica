@@ -3,6 +3,7 @@ import type { HitOptions, InitParameters, People, UserParameters, VisitParameter
 import { ym } from "./ym";
 
 export type YandexMetricaClientParams = {
+    clientID: string;
     /** Enable console log on method calls @default false */
     debug?: boolean;
     /** Enable sending data to Yandex Metrica @default false */
@@ -10,7 +11,7 @@ export type YandexMetricaClientParams = {
 };
 
 export type YandexMetricaClient = {
-    [Methods.Init]: (clientID: string, options?: Partial<InitParameters>) => void;
+    [Methods.Init]: (options?: Partial<InitParameters>) => void;
     [Methods.AddFileExtension]: (extensions?: string | string[]) => void;
     [Methods.ExtLink]: <CTX>(url: string, options?: Omit<HitOptions<CTX>, "referer">) => void;
     [Methods.File]: <CTX>(url: string, options?: HitOptions<CTX>) => void;
@@ -30,19 +31,17 @@ export type YandexMetricaClient = {
     [Methods.UserParams]: (params?: UserParameters) => void;
 };
 
-export function createYandexMetricaClient(params: YandexMetricaClientParams = {}): YandexMetricaClient {
-    let clientID: string | undefined;
-
+export function createYandexMetricaClient({
+    clientID,
+    debug = false,
+    enabled = false,
+}: YandexMetricaClientParams): YandexMetricaClient {
     return new Proxy({} as YandexMetricaClient, {
         get: (_, method: Methods) => {
             return (...args: unknown[]) => {
-                if (method === "init") clientID = args[0] as string;
+                if (debug) console.log(`[yandex-metrica] (${clientID}) ${method}:`, ...args);
 
-                if (!clientID) return console.error("[yandex-metrica] You must init metrica before using it!");
-
-                if (params.debug) console.log(`[yandex-metrica] (${clientID}) ${method}:`, ...args);
-
-                if (params.enabled) ym(clientID, method, ...args);
+                if (enabled) ym(clientID, method, ...args);
             };
         },
     });
