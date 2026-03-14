@@ -14,7 +14,7 @@ export function YandexMetricaInit({
     const client = useYandexMetrica();
 
     useEffect(() => {
-        if (client.clientID !== clientID) client.init(clientID, initParameters);
+        client.init(clientID, initParameters);
     }, [client, clientID, initParameters]);
 
     return null;
