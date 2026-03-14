@@ -5,7 +5,8 @@
     "version": "0.0.0",
     "license": "MIT",
     "scripts": {
-        "build": "pnpm run --filter @yandex-metrica/* build"
+        "build": "pnpm run --filter @yandex-metrica/* build",
+        "release": "pnpm bumpp -r --no-push && pnpm --filter @yandex-metrica/* publish"
     },
     "packageManager": "pnpm@10.12.1",
     "devDependencies": {

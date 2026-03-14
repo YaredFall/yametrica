@@ -10,7 +10,8 @@
     "version": "0.0.0",
     "type": "module",
     "scripts": {
-        "build": "tsdown"
+        "build": "tsdown",
+        "prepack": "pnpm build"
     },
     "license": "MIT",
     "packageManager": "pnpm@10.12.1",
