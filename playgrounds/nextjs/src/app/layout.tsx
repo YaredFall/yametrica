@@ -2,15 +2,14 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import {
-    createYandexMetricaScript,
     YandexMetricaInit,
     YandexMetricaNoscript,
     YandexMetricaProvider,
-} from "@yandex-metrica/react";
-import Script from "next/script";
+    YandexMetricaRouteTracking,
+    YandexMetricaScript,
+} from "@yandex-metrica/nextjs";
 import { Suspense } from "react";
 import { Header } from "./header";
-import { MetricaRouteTracking } from "./route-tracking";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -35,7 +34,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={`${geistSans.variable} ${geistMono.variable} antialiased font-sans bg-zinc-50`}>
-                <Script id="yandex-metrica">{createYandexMetricaScript()}</Script>
+                <YandexMetricaScript />
                 <YandexMetricaNoscript clientID={process.env.NEXT_PUBLIC_YANDEX_METRICA_ID!} />
 
                 <YandexMetricaProvider enabled debug>
@@ -44,7 +43,7 @@ export default function RootLayout({
                         initParameters={{ defer: true, clickmap: true, ecommerce: true }}
                     />
                     <Suspense>
-                        <MetricaRouteTracking />
+                        <YandexMetricaRouteTracking />
                     </Suspense>
 
                     <Header />

@@ -54,9 +54,9 @@ importers:
 
   playgrounds/nextjs:
     dependencies:
-      '@yandex-metrica/react':
+      '@yandex-metrica/nextjs':
         specifier: workspace:*
-        version: link:../../packages/react
+        version: link:../../packages/nextjs
       next:
         specifier: 16.1.6
         version: 16.1.6(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
