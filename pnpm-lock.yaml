@@ -23,6 +23,22 @@ importers:
 
   packages/core: {}
 
+  packages/nextjs:
+    dependencies:
+      '@yandex-metrica/react':
+        specifier: workspace:*
+        version: link:../react
+    devDependencies:
+      '@types/react':
+        specifier: '>=18'
+        version: 19.2.14
+      next:
+        specifier: '>=13'
+        version: 16.1.6(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+      react:
+        specifier: '>=18'
+        version: 19.2.3
+
   packages/react:
     dependencies:
       '@yandex-metrica/core':
