@@ -33,12 +33,12 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-                <YandexMetricaProvider debug>
+            <body className={`${geistSans.variable} ${geistMono.variable} antialiased font-sans bg-zinc-50`}>
+                <YandexMetricaProvider enabled debug>
                     <Script id="yandex-metrica">{createYandexMetricaScript()}</Script>
                     <YandexMetricaInit
                         clientID={process.env.NEXT_PUBLIC_YANDEX_METRICA_ID!}
-                        initParameters={{ defer: true }}
+                        initParameters={{ defer: true, clickmap: true, ecommerce: true }}
                     />
                     <YandexMetricaNoscript />
                     <MetricaRouteTracking />

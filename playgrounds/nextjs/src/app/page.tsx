@@ -2,7 +2,7 @@ import { Counter } from "./counter";
 
 export default function Page() {
     return (
-        <main className="flex min-h-screen flex-col gap-4 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
+        <main className="flex p-8 flex-col gap-4 items-center">
             <h1 className="text-2xl font-bold">Next.js Playground</h1>
             <Counter />
         </main>
