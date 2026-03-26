@@ -9,15 +9,29 @@ import {
 import { type PropsWithChildren, useMemo } from "react";
 import { YandexMetricaContext } from "./context";
 
-export function YandexMetricaProvider(props: PropsWithChildren<YandexMetricaParams & YandexECommerceParams>) {
+interface YandexMetricaProviderProps extends PropsWithChildren, YandexMetricaParams, YandexECommerceParams {
+    /** @default false */
+    enabled: boolean;
+}
+
+export function YandexMetricaProvider({
+    children,
+    clientID,
+    debug = false,
+    enabled = false,
+    defaultCurrencyCode = "RUB",
+}: YandexMetricaProviderProps) {
     const context = useMemo(
         () => ({
-            clientID: props.clientID,
-            metrica: createYandexMetrica(props),
-            eCommerce: createYandexECommerce(props),
+            clientID,
+            enabled,
+            debug,
+            defaultCurrencyCode,
+            metrica: createYandexMetrica({ clientID, debug, enabled }),
+            eCommerce: createYandexECommerce({ debug, enabled, defaultCurrencyCode }),
         }),
-        [props],
+        [clientID, debug, enabled, defaultCurrencyCode],
     );
 
-    return <YandexMetricaContext.Provider value={context}>{props.children}</YandexMetricaContext.Provider>;
+    return <YandexMetricaContext.Provider value={context}>{children}</YandexMetricaContext.Provider>;
 }
