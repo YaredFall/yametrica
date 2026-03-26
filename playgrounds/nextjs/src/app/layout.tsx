@@ -34,8 +34,8 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={`${geistSans.variable} ${geistMono.variable} antialiased font-sans bg-zinc-50`}>
-                <YandexMetricaScript />
                 <YandexMetricaProvider enabled debug clientID={process.env.NEXT_PUBLIC_YANDEX_METRICA_ID!}>
+                    <YandexMetricaScript />
                     <YandexMetricaNoscript />
 
                     <YandexMetricaInit defer clickmap ecommerce />
