@@ -1,4 +1,6 @@
-export * from "./e-commerce";
+export * from "./e-commerce/actions";
+export * from "./e-commerce/client";
+export * from "./e-commerce/types";
 export * from "./methods";
 export * from "./metrica";
 export * from "./script";
