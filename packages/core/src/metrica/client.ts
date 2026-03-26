@@ -6,7 +6,7 @@ export type YandexMetricaParams = {
     clientID: string;
     /** Enable console log on method calls @default false */
     debug?: boolean;
-    /** Enable sending data to Yandex Metrica @default false */
+    /** Enable sending data to Yandex Metrica @default true */
     enabled?: boolean;
 };
 
@@ -31,7 +31,7 @@ export type YandexMetrica = {
     [MetricaMethods.UserParams]: (params?: UserParameters) => void;
 };
 
-export function createYandexMetrica({ clientID, debug = false, enabled = false }: YandexMetricaParams): YandexMetrica {
+export function createYandexMetrica({ clientID, debug = false, enabled = true }: YandexMetricaParams): YandexMetrica {
     return new Proxy({} as YandexMetrica, {
         get: (_, method: MetricaMethods) => {
             return (...args: unknown[]) => {

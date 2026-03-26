@@ -4,7 +4,7 @@ import type { ActionField, CurrencyCode, ProductField, PromoField } from "./type
 export type YandexECommerceParams = {
     /** Enable console log on method calls @default false */
     debug?: boolean;
-    /** Enable sending data to Yandex Metrica @default false */
+    /** Enable sending data to Yandex Metrica @default true */
     enabled?: boolean;
     /** @default "RUB" */
     defaultCurrencyCode?: CurrencyCode;
@@ -23,7 +23,7 @@ export type YandexECommerce = {
 
 export function createYandexECommerce({
     debug = false,
-    enabled = false,
+    enabled = true,
     defaultCurrencyCode = "RUB",
 }: YandexECommerceParams): YandexECommerce {
     return new Proxy({} as YandexECommerce, {
