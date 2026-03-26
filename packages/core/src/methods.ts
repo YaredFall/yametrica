@@ -1,4 +1,4 @@
-export const Methods = {
+export const MetricaMethods = {
     Init: "init",
     AddFileExtension: "addFileExtension",
     ExtLink: "extLink",
@@ -14,4 +14,4 @@ export const Methods = {
     UserParams: "userParams",
 } as const;
 
-export type Methods = (typeof Methods)[keyof typeof Methods];
+export type MetricaMethods = (typeof MetricaMethods)[keyof typeof MetricaMethods];
