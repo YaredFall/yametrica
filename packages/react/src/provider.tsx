@@ -2,18 +2,18 @@
 
 import {
     createYandexECommerce,
-    createYandexMetricaClient,
+    createYandexMetrica,
     type YandexECommerceParams,
-    type YandexMetricaClientParams,
+    type YandexMetricaParams,
 } from "@yametrica/core";
 import { type PropsWithChildren, useMemo } from "react";
 import { YandexMetricaContext } from "./context";
 
-export function YandexMetricaProvider(props: PropsWithChildren<YandexMetricaClientParams & YandexECommerceParams>) {
+export function YandexMetricaProvider(props: PropsWithChildren<YandexMetricaParams & YandexECommerceParams>) {
     const context = useMemo(
         () => ({
             clientID: props.clientID,
-            client: createYandexMetricaClient(props),
+            metrica: createYandexMetrica(props),
             eCommerce: createYandexECommerce(props),
         }),
         [props],

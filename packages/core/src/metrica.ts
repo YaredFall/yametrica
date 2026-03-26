@@ -2,7 +2,7 @@ import type { MetricaMethods } from "./methods";
 import type { HitOptions, InitParameters, People, UserParameters, VisitParameters } from "./types";
 import { ym } from "./ym";
 
-export type YandexMetricaClientParams = {
+export type YandexMetricaParams = {
     clientID: string;
     /** Enable console log on method calls @default false */
     debug?: boolean;
@@ -10,7 +10,7 @@ export type YandexMetricaClientParams = {
     enabled?: boolean;
 };
 
-export type YandexMetricaClient = {
+export type YandexMetrica = {
     [MetricaMethods.Init]: (options?: Partial<InitParameters>) => void;
     [MetricaMethods.AddFileExtension]: (extensions?: string | string[]) => void;
     [MetricaMethods.ExtLink]: <CTX>(url: string, options?: Omit<HitOptions<CTX>, "referer">) => void;
@@ -31,12 +31,8 @@ export type YandexMetricaClient = {
     [MetricaMethods.UserParams]: (params?: UserParameters) => void;
 };
 
-export function createYandexMetricaClient({
-    clientID,
-    debug = false,
-    enabled = false,
-}: YandexMetricaClientParams): YandexMetricaClient {
-    return new Proxy({} as YandexMetricaClient, {
+export function createYandexMetrica({ clientID, debug = false, enabled = false }: YandexMetricaParams): YandexMetrica {
+    return new Proxy({} as YandexMetrica, {
         get: (_, method: MetricaMethods) => {
             return (...args: unknown[]) => {
                 if (debug) console.log(`[yandex-metrica] (${clientID}) ${method}:`, ...args);

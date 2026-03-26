@@ -6,5 +6,5 @@ export function useYandexMetrica() {
 
     if (!context) throw new Error("useYandexMetrica must be used within a YandexMetricaProvider");
 
-    return context.client;
+    return context.metrica;
 }
