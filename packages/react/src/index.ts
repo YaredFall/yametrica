@@ -1,4 +1,5 @@
 export * from "@yametrica/core";
+export { useYandexMetricaContext } from "./context";
 export { YandexMetricaProvider } from "./provider";
 export { useYandexECommerce } from "./useYandexECommerce";
 export { useYandexMetrica } from "./useYandexMetrica";

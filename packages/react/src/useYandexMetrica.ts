@@ -1,10 +1,7 @@
-import { useContext } from "react";
-import { YandexMetricaContext } from "./context";
+import { useYandexMetricaContext } from "./context";
 
 export function useYandexMetrica() {
-    const context = useContext(YandexMetricaContext);
-
-    if (!context) throw new Error("useYandexMetrica must be used within a YandexMetricaProvider");
+    const context = useYandexMetricaContext("useYandexMetrica");
 
     return context.metrica;
 }

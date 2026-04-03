@@ -1,8 +1,8 @@
 "use client";
 
 import { createYandexMetricaScript } from "@yametrica/react";
-import { type ComponentProps, useContext } from "react";
-import { YandexMetricaContext } from "./context";
+import type { ComponentProps } from "react";
+import { useYandexMetricaContext } from "./context";
 
 interface YandexMetricaScriptProps extends Omit<ComponentProps<"script">, "children" | "src"> {
     tagSrc?: string;
@@ -14,9 +14,7 @@ interface YandexMetricaScriptProps extends Omit<ComponentProps<"script">, "child
  * _Will not be rendered when metrica is disabled_
  */
 export function YandexMetricaScript({ tagSrc, ...props }: YandexMetricaScriptProps) {
-    const context = useContext(YandexMetricaContext);
-
-    if (!context) throw new Error("YandexMetricaScript must be used within a YandexMetricaProvider");
+    const context = useYandexMetricaContext("YandexMetricaScript");
 
     if (!context.enabled) return null;
 

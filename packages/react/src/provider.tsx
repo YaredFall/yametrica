@@ -7,7 +7,7 @@ import {
     type YandexMetricaParams,
 } from "@yametrica/core";
 import { type PropsWithChildren, useMemo } from "react";
-import { YandexMetricaContext } from "./context";
+import { YandexMetricaContextProvider } from "./context";
 
 interface YandexMetricaProviderProps extends PropsWithChildren, YandexMetricaParams, YandexECommerceParams {
     /** @default false */
@@ -33,5 +33,5 @@ export function YandexMetricaProvider({
         [clientID, debug, enabled, defaultCurrencyCode],
     );
 
-    return <YandexMetricaContext.Provider value={context}>{children}</YandexMetricaContext.Provider>;
+    return <YandexMetricaContextProvider value={context}>{children}</YandexMetricaContextProvider>;
 }

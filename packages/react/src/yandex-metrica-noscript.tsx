@@ -1,8 +1,7 @@
 "use client";
 
 import { createYandexMetricaNoscript } from "@yametrica/core";
-import { useContext } from "react";
-import { YandexMetricaContext } from "./context";
+import { useYandexMetricaContext } from "./context";
 
 /**
  * Creates Yandex Metrica `noscript` tag
@@ -10,9 +9,7 @@ import { YandexMetricaContext } from "./context";
  * _Will not be rendered when metrica is disabled_
  */
 export function YandexMetricaNoscript() {
-    const context = useContext(YandexMetricaContext);
-
-    if (!context) throw new Error("YandexMetricaNoscript must be used within a YandexMetricaProvider");
+    const context = useYandexMetricaContext("YandexMetricaNoscript");
 
     if (!context.enabled) return null;
 
